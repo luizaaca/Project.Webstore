@@ -1,4 +1,5 @@
 ﻿using Project.Webstore.Infrastructure.Domain.Validation;
+using System;
 using System.Collections.Generic;
 
 namespace Project.Webstore.Infrastructure.Domain.BaseClasses
@@ -8,6 +9,10 @@ namespace Project.Webstore.Infrastructure.Domain.BaseClasses
         private List<BusinessRule> _brokenRules = new List<BusinessRule>();
 
         public TId Id { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
 
         protected abstract void Validate();
 
