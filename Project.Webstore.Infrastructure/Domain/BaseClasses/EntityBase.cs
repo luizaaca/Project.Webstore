@@ -1,8 +1,8 @@
-﻿using Project.Webstore.Infrastructure.Domain.Validation;
+﻿using Project.Webstore.Infrastructure.UnitOfWork.Validation;
 using System;
 using System.Collections.Generic;
 
-namespace Project.Webstore.Infrastructure.Domain.BaseClasses
+namespace Project.Webstore.Infrastructure.UnitOfWork.BaseClasses
 {
     public abstract class EntityBase<TId>
     {

@@ -52,10 +52,10 @@
     <Compile Include="Configuration\Classes\WebConfigApplicationSettings.cs" />
     <Compile Include="Configuration\Interfaces\IApplicationSettings.cs" />
     <Compile Include="Domain\BaseClasses\EntityStatus.cs" />
-    <Compile Include="Domain\Interfaces\IReadOnlyRepository.cs" />
-    <Compile Include="Domain\Interfaces\IRepository.cs" />
-    <Compile Include="Domain\Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Domain\Interfaces\IUnitOfWorkRepository.cs" />
+    <Compile Include="Repository\Interfaces\IReadOnlyRepository.cs" />
+    <Compile Include="Repository\Interfaces\IRepository.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IUnitOfWorkRepository.cs" />
     <Compile Include="Domain\Validation\BusinessRule.cs" />
     <Compile Include="Domain\BaseClasses\EntityBase.cs" />
     <Compile Include="Domain\Interfaces\IAggregateRoot.cs" />
@@ -84,7 +84,7 @@
     <Folder Include="Authentication\" />
     <Folder Include="CookieStorage\" />
     <Folder Include="Payments\" />
-    <Folder Include="UnitOfWork\" />
+    <Folder Include="Repository\Database\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

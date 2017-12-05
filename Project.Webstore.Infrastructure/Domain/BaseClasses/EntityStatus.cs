@@ -1,6 +1,6 @@
-﻿namespace Project.Webstore.Infrastructure.Domain.BaseClasses
+﻿namespace Project.Webstore.Infrastructure.UnitOfWork.BaseClasses
 {
-    public enum EntityStatus
+    public enum EntityStatus : short
     {
         Active,
         Inactive,

@@ -1,5 +1,5 @@
-﻿using Project.Webstore.Infrastructure.Domain.BaseClasses;
-using Project.Webstore.Infrastructure.Domain.Interfaces;
+﻿using Project.Webstore.Infrastructure.Domain.Interfaces;
+using Project.Webstore.Infrastructure.UnitOfWork.BaseClasses;
 using Project.Webstore.Model.ProductAttributes;
 
 namespace Project.Webstore.Model.Product

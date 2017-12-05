@@ -1,4 +1,6 @@
-﻿namespace Project.Webstore.Infrastructure.Domain.Interfaces
+﻿using Project.Webstore.Infrastructure.Domain.Interfaces;
+
+namespace Project.Webstore.Infrastructure.UnitOfWork.Interfaces
 {
     public interface IUnitOfWorkRepository
     {
