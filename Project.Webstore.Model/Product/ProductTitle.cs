@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using Project.Webstore.Infrastructure.Domain.BaseClasses;
+using Project.Webstore.Infrastructure.Domain.Interfaces;
+using Project.Webstore.Model.ProductAttributes;
+
+namespace Project.Webstore.Model.Product
+{
+    public class ProductTitle : EntityBase<int>, IAggregateRoot
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public Brand Brand { get; internal set; }
+        public ProductColor Color { get; internal set; }
+        public Category Category { get; internal set; }
+        public IEnumerable<Product> Products { get; set; }
+
+        protected override void Validate()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
