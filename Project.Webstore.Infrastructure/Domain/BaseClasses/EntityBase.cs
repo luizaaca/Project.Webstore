@@ -14,6 +14,8 @@ namespace Project.Webstore.Infrastructure.Domain.BaseClasses
 
         public DateTime? ModifiedOn { get; set; }
 
+        public EntityStatus Status { get; set; }
+
         protected abstract void Validate();
 
         public IEnumerable<BusinessRule> GetBrokenRules()
