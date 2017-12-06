@@ -7,5 +7,6 @@ namespace Project.Webstore.Infrastructure.Repository.Interfaces
         void Add(T entity);
         void Remove(T entity);
         void Save(T entity);
+        void Commit();
     }
 }

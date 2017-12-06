@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Project.Webstore.Infrastructure.UnitOfWork.BaseClasses
+namespace Project.Webstore.Infrastructure.Domain.BaseClasses
 {
     public abstract class EntityBase<TId>
     {

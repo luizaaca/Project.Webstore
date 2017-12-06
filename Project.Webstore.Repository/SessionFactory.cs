@@ -34,19 +34,22 @@ namespace Project.Webstore.Repository
             return GetSessionFactory().OpenSession();
         }
 
-        public static ISession GetCurrentSession()
+        public static ISession CurrentSession
         {
-            ISessionStorageContainer sessionStorageContainer = SessionStorageFactory.GetStorageContainer();
-
-            ISession currentSession = sessionStorageContainer.GetCurrentSession();
-
-            if(currentSession == null)
+            get
             {
-                currentSession = GetNewSession();
-                sessionStorageContainer.Store(currentSession);
-            }
+                ISessionStorageContainer sessionStorageContainer = SessionStorageFactory.GetStorageContainer();
 
-            return currentSession;
+                ISession currentSession = sessionStorageContainer.GetCurrentSession();
+
+                if (currentSession == null)
+                {
+                    currentSession = GetNewSession();
+                    sessionStorageContainer.Store(currentSession);
+                }
+
+                return currentSession;
+            }
         }
     }
 }

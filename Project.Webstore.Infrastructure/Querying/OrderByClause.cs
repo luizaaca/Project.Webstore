@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Project.Webstore.Infrastructure.Querying
 {
-    public class OrderByClause
+    public class OrderByClause<T, TKey>
     {
-        public string PropertyName { get; set; }
-        public bool Desc { get; set; }
+        public OrderByClause(Expression<Func<T, TKey>> orderBy, bool desc)
+        {
+            OrderBy = orderBy;
+            Desc = desc;
+        }
+
+        public bool Desc { get; private set; }
+        public Expression<Func<T, TKey>> OrderBy { get; private set; }
     }
 }

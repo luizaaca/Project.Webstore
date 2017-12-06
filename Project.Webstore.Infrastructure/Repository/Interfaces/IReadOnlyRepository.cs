@@ -4,11 +4,11 @@ using Project.Webstore.Infrastructure.Domain.Interfaces;
 
 namespace Project.Webstore.Infrastructure.Repository.Interfaces
 {
-    public interface IReadOnlyRepository<T, TId> where T : IAggregateRoot
+    public interface IReadOnlyRepository<T, TEntityKey> where T : IAggregateRoot
     {
-        T FindBy(TId id);
+        T FindBy(TEntityKey id);
         IEnumerable<T> FindAll();
-        IEnumerable<T> FindBy(Query query);
-        IEnumerable<T> FindBy(Query query, int index, int count);
+        IEnumerable<T> FindBy(Query<T, TEntityKey> query);
+        IEnumerable<T> FindBy(Query<T, TEntityKey> query, int index, int count);
     }
 }

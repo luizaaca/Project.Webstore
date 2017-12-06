@@ -1,44 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Project.Webstore.Infrastructure.Querying
 {
-    public class Query
+    public class Query<T,TKey>
     {
-        private IList<Query> _subQueries = new List<Query>();
-        private IList<Criterion> _criterias = new List<Criterion>();
-        private IList<OrderByClause> _orderByClauses = new List<OrderByClause>();
-
-        public IEnumerable<Criterion> Criteria
+        public Query(Expression<Func<T, bool>> expression)
         {
-            get { return _criterias; }
+            OrderByClauses = new List<OrderByClause<T,TKey>>();
+            Predicate = expression;
         }
 
-        public IEnumerable<Query> SubQueries
-        {
-            get { return _subQueries; }
-        }
+        public IList<OrderByClause<T, TKey>> OrderByClauses { get; set; }
 
-        public IEnumerable<OrderByClause> OrderByClauses
-        {
-            get { return _orderByClauses; }
-        }
+        public Expression<Func<T, bool>> Predicate { get; set; }        
 
-        public void AddSubQuery(Query subQuery)
+        public Query<T,TKey> OrderBy(OrderByClause<T, TKey> orderBy)
         {
-            _subQueries.Add(subQuery);
-        }
+            OrderByClauses.Add(orderBy);
 
-        public void AddCriteria(Criterion criteria)
-        {
-            _criterias.Add(criteria);
+            return this;
         }
-
-        public void AddOrderByClause(OrderByClause orderByClause)
-        {
-            _orderByClauses.Add(orderByClause);
-        }
-
-        public QueryOperator QueryOperator { get; set; }
-        public bool Not { get; set; }
     }
 }
