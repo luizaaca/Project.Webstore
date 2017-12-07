@@ -11,21 +11,16 @@ namespace Project.Webstore.Repository.Repositories
     {
         public void Add(T entity)
         {
-            entity.CreatedOn = DateTime.Now;
-            entity.Status = EntityStatus.Active;
-
             SessionFactory.CurrentSession.Save(entity);
         }
 
-        public abstract void Remove(T entity);
+        public void Remove(T entity)
+        {
+            SessionFactory.CurrentSession.Delete(entity);
+        }
 
         public void Save(T entity)
         {
-            if (entity.Status == EntityStatus.Removed)
-                throw new ApplicationException("Cannot update removed entity. If deleting, use the corresponding method in the repository.");
-
-            entity.ModifiedOn = DateTime.Now;
-
             SessionFactory.CurrentSession.Update(entity);
         }
 
@@ -33,14 +28,14 @@ namespace Project.Webstore.Repository.Repositories
         {
             var query = SessionFactory.CurrentSession.Query<T>();
 
-            return query.Where(e => e.Id.Equals(id) && e.Status != EntityStatus.Removed).Single();
+            return query.Where(e => e.Id.Equals(id)).Single();
         }
 
         public IEnumerable<T> FindAll()
         {
             var query = SessionFactory.CurrentSession.Query<T>();
 
-            return query.Where(e => e.Status != EntityStatus.Removed).ToList();
+            return query.ToList();
         }
 
         public IEnumerable<T> FindAll(int index, int count)
@@ -48,7 +43,6 @@ namespace Project.Webstore.Repository.Repositories
             var query = SessionFactory.CurrentSession.Query<T>();
 
             return query
-                .Where(e => e.Status != EntityStatus.Removed)
                 .Skip(index)
                 .Take(count)
                 .ToList();

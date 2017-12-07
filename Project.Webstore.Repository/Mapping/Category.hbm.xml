@@ -11,15 +11,6 @@
     <property name="Name">
       <column name="Name" sql-type="nvarchar(50)" not-null="true" />
     </property>
-    <property name="CreatedOn">
-      <column name="CreatedOn" sql-type="DATETIME2(7)" not-null="true" />
-    </property>
-    <property name="ModifiedOn">
-      <column name="ModifiedOn" sql-type="DATETIME2(7)" not-null="false" />
-    </property>
-    <property name="Status">
-      <column name="Status" sql-type="tinyint" not-null="true" />
-    </property>
   </class>
 
 </hibernate-mapping>

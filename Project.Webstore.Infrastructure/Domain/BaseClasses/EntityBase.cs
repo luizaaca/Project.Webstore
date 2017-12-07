@@ -10,12 +10,6 @@ namespace Project.Webstore.Infrastructure.Domain.BaseClasses
 
         public TId Id { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
-
-        public EntityStatus Status { get; set; }
-
         protected abstract void Validate();
 
         public IEnumerable<BusinessRule> GetBrokenRules()

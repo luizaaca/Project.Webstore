@@ -51,7 +51,6 @@
     <Compile Include="Configuration\ApplicationSettingsFactory.cs" />
     <Compile Include="Configuration\Classes\WebConfigApplicationSettings.cs" />
     <Compile Include="Configuration\Interfaces\IApplicationSettings.cs" />
-    <Compile Include="Domain\BaseClasses\EntityStatus.cs" />
     <Compile Include="Repository\Interfaces\IReadOnlyRepository.cs" />
     <Compile Include="Repository\Interfaces\IRepository.cs" />
     <Compile Include="UnitOfWork\Interfaces\IUnitOfWork.cs" />

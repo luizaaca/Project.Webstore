@@ -8,15 +8,6 @@
     <id name="Id" column="Id" type="int" unsaved-value="0">
       <generator class="native"/>
     </id>
-    <property name="CreatedOn">
-      <column name="CreatedOn" sql-type="DATETIME2(7)" not-null="true" />
-    </property>
-    <property name="ModifiedOn">
-      <column name="ModifiedOn" sql-type="DATETIME2(7)" not-null="false" />
-    </property>
-    <property name="Status">
-      <column name="Status" sql-type="tinyint" not-null="true" />
-    </property>
     <many-to-one name="Size" class="Project.Webstore.Model.ProductAttributes.ProductSize" column="SizeId" not-null="true" />
     <many-to-one name="Title" class="ProductTitle" column="ProductTitleId" not-null="true" lazy="false" />
   </class>

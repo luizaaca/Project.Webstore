@@ -14,15 +14,6 @@
     <property name="Price">
       <column name="Price" sql-type="Decimal(18,2)" not-null="true" />
     </property>
-    <property name="CreatedOn">
-      <column name="CreatedOn" sql-type="DATETIME2(7)" not-null="true" />
-    </property>
-    <property name="ModifiedOn">
-      <column name="ModifiedOn" sql-type="DATETIME2(7)" not-null="false" />
-    </property>
-    <property name="Status">
-      <column name="Status" sql-type="tinyint" not-null="true" />
-    </property>
     <many-to-one name="Color" class="Project.Webstore.Model.ProductAttributes.ProductColor" column="ColorId" not-null="true" />
     <many-to-one name="Brand" class="Project.Webstore.Model.ProductAttributes.Brand" column="BrandId" not-null="true" />
     <many-to-one name="Category" class="Project.Webstore.Model.ProductAttributes.Category" column="CategoryId" not-null="true" lazy="false" />
