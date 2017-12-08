@@ -18,7 +18,7 @@ namespace Project.Webstore.Model.Product
 
         public ProductColor Color { get => Title.Color; }
 
-        public Category Category { get => Title.Category; }
+        public Category.Category Category { get => Title.Category; }
 
         protected override void Validate()
         {

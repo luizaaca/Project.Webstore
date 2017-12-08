@@ -8,7 +8,7 @@ namespace Project.Webstore.Infrastructure.Repository.Interfaces
     {
         T FindBy(TEntityKey id);
         IEnumerable<T> FindAll();
-        IEnumerable<T> FindBy(Query<T, TEntityKey> query);
-        IEnumerable<T> FindBy(Query<T, TEntityKey> query, int index, int count);
+        IEnumerable<T> FindBy(Query<T> query);
+        IEnumerable<T> FindBy(Query<T> query, int index, int count);
     }
 }

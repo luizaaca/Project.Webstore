@@ -2,9 +2,9 @@
 using Project.Webstore.Infrastructure.Domain.Interfaces;
 using Project.Webstore.Infrastructure.Domain.BaseClasses;
 
-namespace Project.Webstore.Model.ProductAttributes
+namespace Project.Webstore.Model.Category
 {
-    public class Category : EntityBase<int>, IAggregateRoot, IProductAttribute
+    public class Category : EntityBase<int>, IAggregateRoot 
     {
         public string Name { get; set; }
 

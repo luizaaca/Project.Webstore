@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProductAttributes\Brand.cs" />
-    <Compile Include="ProductAttributes\Category.cs" />
+    <Compile Include="Category\Category.cs" />
     <Compile Include="ProductAttributes\Interfaces\IProductAttribute.cs" />
     <Compile Include="ProductAttributes\ProductColor.cs" />
     <Compile Include="ProductAttributes\ProductSize.cs" />
