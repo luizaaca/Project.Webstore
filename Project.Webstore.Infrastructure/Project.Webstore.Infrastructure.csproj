@@ -51,6 +51,7 @@
     <Compile Include="Configuration\ApplicationSettingsFactory.cs" />
     <Compile Include="Configuration\Classes\WebConfigApplicationSettings.cs" />
     <Compile Include="Configuration\Interfaces\IApplicationSettings.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
     <Compile Include="Repository\Interfaces\IReadOnlyRepository.cs" />
     <Compile Include="Repository\Interfaces\IRepository.cs" />
     <Compile Include="UnitOfWork\Interfaces\IUnitOfWork.cs" />
@@ -64,7 +65,6 @@
     <Compile Include="Email\EmailServiceFactory.cs" />
     <Compile Include="Email\Interfaces\IEmailService.cs" />
     <Compile Include="Helpers\PriceHelper.cs" />
-    <Compile Include="Helpers\UrlHelper.cs" />
     <Compile Include="Logging\Classes\Log4NetAdapter.cs" />
     <Compile Include="Logging\Interfaces\ILogger.cs" />
     <Compile Include="Logging\LoggerFactory.cs" />

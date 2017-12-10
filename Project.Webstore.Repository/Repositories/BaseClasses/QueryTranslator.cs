@@ -9,7 +9,7 @@ namespace Project.Webstore.Repository.Repositories
 {
     public static class QueryTranslator
     {
-        public static void TranslateIntoNHQuery<T, TKey>(this Query<T, TKey> query, IQueryable<T> nhQuery)
+        public static void TranslateIntoNHQuery<T>(this Query<T> query, IQueryable<T> nhQuery)
         {
             nhQuery = nhQuery.Where(query.Predicate);
 

@@ -48,7 +48,7 @@ namespace Project.Webstore.Repository.Repositories
                 .ToList();
         }
 
-        public IEnumerable<T> FindBy(Query<T, TEntityKey> query)
+        public IEnumerable<T> FindBy(Query<T> query)
         {
             var sessionQuery = SessionFactory.CurrentSession.Query<T>();
 
@@ -57,7 +57,7 @@ namespace Project.Webstore.Repository.Repositories
             return sessionQuery.ToList();
         }
 
-        public IEnumerable<T> FindBy(Query<T, TEntityKey> query, int index, int count)
+        public IEnumerable<T> FindBy(Query<T> query, int index, int count)
         {
             var sessionQuery = SessionFactory.CurrentSession.Query<T>();
 
