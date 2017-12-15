@@ -1,8 +1,40 @@
 ﻿@model Project.Webstore.Controllers.ViewModels.ProductCatalog.HomePageView
 
-@{
-    ViewBag.Title = "Index";
-}
+<div class="left-menu">
+    @Html.Partial("Categories")
+</div>
 
-<h2>Index</h2>
+<div class="main-view">
+    Top Products
+    <div id="top-products" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            @for (int i = 0; i < Model.Products.Count(); i++)
+            {
+                <li data-target="#top-products" data-slide="@i" class="@(i==0    ?"active":"")"></li>
+            }
+        </ol>
+        <div class="carousel-inner">
+            @foreach (var item in Model.Products)
+            {
+                <div class="item @(Model.Products.ElementAt(0) == item ? "active" : "")">
+                    <a href="@Url.Action("Detail","Product", new { id = item.Id })">
+                        <img class="top-products-img" src="~/Content/Images/Products/Product_Icon.png" alt="@item.Name" />
+                        <div class="carousel-caption">
+                            <h3>@item.Name</h3>
+                            <p>@item.Price</p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
 
+        <a class="left carousel-control" href="#top-products" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#top-products" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>

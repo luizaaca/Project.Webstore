@@ -1,0 +1,14 @@
+INFO  2017-12-14 20:24:44,374 58ms $-22.22c{1} Log                - Application Started in 14/12/2017 20:24:44
+INFO  2017-12-14 21:05:13,639 57ms $-22.22c{1} Log                - Application Started in 14/12/2017 21:05:13
+INFO  2017-12-14 21:10:22,845 65ms $-22.22c{1} Log                - Application Started in 14/12/2017 21:10:22
+INFO  2017-12-14 21:11:52,223 55ms $-22.22c{1} Log                - Application Started in 14/12/2017 21:11:52
+INFO  2017-12-14 21:23:28,912 58ms $-22.22c{1} Log                - Application Started in 14/12/2017 21:23:28
+INFO  2017-12-14 21:28:52,658 56ms $-22.22c{1} Log                - Application Started in 14/12/2017 21:28:52
+INFO  2017-12-14 21:32:20,685 65ms $-22.22c{1} Log                - Application Started in 14/12/2017 21:32:20
+INFO  2017-12-14 21:43:55,454 57ms $-22.22c{1} Log                - Application Started in 14/12/2017 21:43:55
+INFO  2017-12-14 22:12:29,806 57ms $-22.22c{1} Log                - Application Started in 14/12/2017 22:12:29
+INFO  2017-12-14 22:17:13,148 71ms $-22.22c{1} Log                - Application Started in 14/12/2017 22:17:13
+INFO  2017-12-14 22:28:59,320 65ms $-22.22c{1} Log                - Application Started in 14/12/2017 22:28:59
+INFO  2017-12-14 22:34:05,443 73ms $-22.22c{1} Log                - Application Started in 14/12/2017 22:34:05
+INFO  2017-12-14 22:39:43,811 56ms $-22.22c{1} Log                - Application Started in 14/12/2017 22:39:43
+INFO  2017-12-14 22:46:50,693 57ms $-22.22c{1} Log                - Application Started in 14/12/2017 22:46:50

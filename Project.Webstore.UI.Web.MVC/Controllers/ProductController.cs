@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Project.Webstore.Services.Interfaces;
 using Project.Webstore.Services.Messaging.ProductCatalogService.Request;
 using Project.Webstore.Services.Messaging.ProductCatalogService.Response;
 using Project.Webstore.Controllers.ViewModels.ProductCatalog;
 using Project.Webstore.UI.Web.MVC.ViewModels.JsonDTOs;
 using Project.Webstore.Services.ViewModels;
+using Project.Webstore.UI.Web.MVC.ViewModels.ProductCatalog;
 
 namespace Project.Webstore.UI.Web.MVC.Controllers
 {
@@ -28,7 +25,7 @@ namespace Project.Webstore.UI.Web.MVC.Controllers
 
             ViewBag.Categories = GetCategories();
             
-            return View(resultView);
+            return View("ProductSearchResult",resultView);
         }
 
         public ActionResult Detail(int id)
@@ -55,7 +52,7 @@ namespace Project.Webstore.UI.Web.MVC.Controllers
 
             var result = GetProductResultViewFrom(response);
 
-            return Json(result);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         private static GetProductsByCategoryRequest GenerateProductSearchRequestFrom(JsonProductSearchRequest jsonRequest)

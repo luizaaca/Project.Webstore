@@ -1,4 +1,5 @@
-﻿using Project.Webstore.Infrastructure.Domain.BaseClasses;
+﻿using NHibernate.Criterion;
+using Project.Webstore.Infrastructure.Domain.BaseClasses;
 using Project.Webstore.Infrastructure.Domain.Interfaces;
 using Project.Webstore.Infrastructure.Querying;
 using System;
@@ -26,9 +27,11 @@ namespace Project.Webstore.Repository.Repositories
 
         public T FindBy(TEntityKey id)
         {
-            var query = SessionFactory.CurrentSession.Query<T>();
+            var query = SessionFactory.CurrentSession.CreateCriteria<T>();
 
-            return query.Where(e => e.Id.Equals(id)).Single();
+            query.Add(Expression.Eq("Id", id));
+
+            return query.UniqueResult<T>();
         }
 
         public IEnumerable<T> FindAll()
@@ -52,7 +55,7 @@ namespace Project.Webstore.Repository.Repositories
         {
             var sessionQuery = SessionFactory.CurrentSession.Query<T>();
 
-            query.TranslateIntoNHQuery(sessionQuery);
+            sessionQuery = query.TranslateIntoNHQuery(sessionQuery);
 
             return sessionQuery.ToList();
         }
@@ -61,7 +64,7 @@ namespace Project.Webstore.Repository.Repositories
         {
             var sessionQuery = SessionFactory.CurrentSession.Query<T>();
 
-            query.TranslateIntoNHQuery(sessionQuery);
+            sessionQuery = query.TranslateIntoNHQuery(sessionQuery);
 
             return sessionQuery.Skip(index).Take(count).ToList();
         }

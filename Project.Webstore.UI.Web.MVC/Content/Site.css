@@ -1,12 +1,20 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    height: auto !important;
+    min-height: 100%;
+    /*padding-bottom: 20px;*/
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 15px;
+}
+
+footer {
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -16,3 +24,83 @@ textarea {
     max-width: 280px;
 }
 
+ul {
+    list-style: none;
+}
+
+.logo {
+    width: 20px;
+    height: auto;
+    margin-bottom: 3px;
+    margin-top: -3px;
+    margin-right: 3px;
+    filter: invert(85%);
+}
+
+.left-menu {
+    position: absolute;
+    margin-right: 10px;
+    background-color: bisque;
+    width: 120px;
+}
+
+    .left-menu a {
+        margin-left: 15px;
+        color: black;
+        text-decoration: none;
+    }
+
+        .left-menu a:hover {
+            color: darkslategrey;
+            text-decoration: none;
+        }
+
+.main-view {
+    margin-left: 130px;
+}
+
+#top-products {
+    width: 100%;
+    min-width: 300px;
+    max-width: 400px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.top-products-img {
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.product-img {
+    position: absolute;
+    margin: 50px 50%;
+}
+
+.product-img-detail {
+    width: 100px;
+    height: auto;
+}
+
+.product-img-list {
+    width: 40px;
+    height: auto;
+}
+
+.product-description {
+    margin: 30px 10px;
+}
+
+.refine-attributes {
+    padding: 0;
+    text-transform: capitalize;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}
+
+#products-found {
+    float: right;
+}

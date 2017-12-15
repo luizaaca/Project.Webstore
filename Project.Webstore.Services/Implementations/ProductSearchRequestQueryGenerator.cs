@@ -18,17 +18,17 @@ namespace Project.Webstore.Services.Implementations
             switch (request.SortBy)
             {
                 case ProductsSortBy.PriceHighToLow:
-                    orderBy = new OrderByClause<Product>(p => p.Price, true);
+                    orderBy = new OrderByClause<Product>(p => p.Title.Price, true);
                     break;
                 default:
-                    orderBy = new OrderByClause<Product>(p => p.Price, false);
+                    orderBy = new OrderByClause<Product>(p => p.Title.Price, false);
                     break;
             }
 
             return new Query<Product>(p =>
-                p.Category.Id == request.CategoryId &&
-                (colorIds.Length == 0 || colorIds.Contains(p.Color.Id)) &&
-                (brandIds.Length == 0 || brandIds.Contains(p.Brand.Id)) &&
+                p.Title.Category.Id == request.CategoryId &&
+                (colorIds.Length == 0 || colorIds.Contains(p.Title.Color.Id)) &&
+                (brandIds.Length == 0 || brandIds.Contains(p.Title.Brand.Id)) &&
                 (sizeIds.Length == 0 || sizeIds.Contains(p.Size.Id))).OrderBy(orderBy);
         }
     }

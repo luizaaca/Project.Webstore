@@ -1,0 +1,45 @@
+﻿@model Project.Webstore.Controllers.ViewModels.ProductCatalog.ProductDetailView
+@{
+    var prod = Model.Product;
+}
+
+<div class="product-img">
+    <img src="~/Content/Images/Products/Product_Icon.png" class="product-img-detail" alt="@prod.Name" />
+</div>
+
+<div>
+    <h2>@prod.Name</h2>
+    <dl class="dl-horizontal">
+        <dt>Brand</dt>
+        <dd>@prod.BrandName</dd>
+        <dt>Price</dt>
+        <dd>@prod.Price</dd>
+        <dt>Color</dt>
+        <dd>@prod.ColorName</dd>
+        <dt>Size</dt>
+        <dd>
+            <select id="productSizes">
+                @foreach (var item in prod.Products)
+                {
+                    <option value="@item.Id">@item.SizeName</option>
+                }
+            </select>
+        </dd>
+        <dt>Quantity</dt>
+        <dd><input id="quantity" class="col-sm-1" type="number" /></dd>
+        <dd><input type="button" class="btn btn-sm btn-success" value="Add to cart"></dd>
+    </dl>
+</div>
+
+<div class="product-description">
+    <p>Lorem ipsum dolor sit amet, mutat legere id his. Ipsum aperiam in eum, sed nonumy dissentiunt eu, usu idque commune disputando ea. Per ex mollis voluptatum, summo sanctus admodum eu ius, quis malis laoreet et usu. Ad labore docendi sadipscing eam, tale fugit omnesque ut eam. Nostro eripuit vim eu, ei vim assum interpretaris. Causae timeam nam et, pri no cetero consequat dissentias.</p>
+</div>
+
+<div class="product-description">
+    <h4>Returns / Delivery / Info</h4>
+    <p>Lorem ipsum dolor sit amet, mutat legere id his. Ipsum aperiam in eum, sed nonumy dissentiunt eu, usu idque commune disputando ea. Per ex mollis voluptatum, summo sanctus admodum eu ius, quis malis laoreet et usu. Ad labore docendi sadipscing eam, tale fugit omnesque ut eam. Nostro eripuit vim eu, ei vim assum interpretaris. Causae timeam nam et, pri no cetero consequat dissentias.</p>
+    <p>Usu porro fuisset scaevola cu, cum te saepe impetus bonorum, sea id velit scripta detracto. Vix veniam reformidans cu, in has mutat alterum denique. Nulla tollit dolores sed id, rebum legendos tincidunt ad vis. Eu tota pertinax corrumpit vis. Ad vis fabellas percipitur, decore feugait cu est, ea pro augue consulatu reprimique. Ut fabellas sensibus mea, ut quod partem viderer qui, discere facilisis has at.</p>
+    <p>
+        Nominavi cotidieque necessitatibus ea nec, ne eam option expetendis. No delectus evertitur qui. An eam utamur convenire, cu splendide torquatos pro, an eum causae inermis comprehensam. Fastidii quaestio consequat quo in, mel an eripuit detracto sententiae.
+    </p>
+</div>

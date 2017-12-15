@@ -1,7 +1,7 @@
 ﻿using Project.Webstore.Services.ViewModels;
 using System.Collections.Generic;
 
-namespace Project.Webstore.Controllers.ViewModels.ProductCatalog
+namespace Project.Webstore.UI.Web.MVC.ViewModels.ProductCatalog
 {
     public class ProductSearchResultView
     {

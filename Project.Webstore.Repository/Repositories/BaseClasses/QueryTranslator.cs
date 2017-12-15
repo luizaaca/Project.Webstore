@@ -9,7 +9,7 @@ namespace Project.Webstore.Repository.Repositories
 {
     public static class QueryTranslator
     {
-        public static void TranslateIntoNHQuery<T>(this Query<T> query, IQueryable<T> nhQuery)
+        public static IQueryable<T> TranslateIntoNHQuery<T>(this Query<T> query, IQueryable<T> nhQuery)
         {
             nhQuery = nhQuery.Where(query.Predicate);
 
@@ -20,6 +20,8 @@ namespace Project.Webstore.Repository.Repositories
                 else
                     nhQuery = nhQuery.OrderBy(orderByClause.OrderBy);
             }
+
+            return nhQuery;
         }
     }
 }

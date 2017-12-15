@@ -1,0 +1,13 @@
+﻿@using Project.Webstore.Services.ViewModels
+
+<table>
+
+@foreach (CategoryView item in ViewBag.Categories) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "GetProductsByCategory", "Product", new { categoryId=item.Id }, null)
+        </td>
+    </tr>
+}
+
+</table>

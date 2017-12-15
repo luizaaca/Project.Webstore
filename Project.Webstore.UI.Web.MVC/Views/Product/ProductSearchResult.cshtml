@@ -1,0 +1,86 @@
+﻿@model Project.Webstore.UI.Web.MVC.ViewModels.ProductCatalog.ProductSearchResultView
+@using Project.Webstore.Services.Messaging.ProductCatalogService.Request
+@using Project.Webstore.UI.Web.MVC.Helpers
+
+<div id="product-search" class="left-menu">
+    <h4>Refine by</h4>
+    @foreach (var refinementGroup in Model.RefinementGroups)
+    {
+        <h5 class="small-caps">@Html.Encode(refinementGroup.Name)</h5>
+        <div class="refinement-box">
+            <ul class="refine-attributes">
+                @foreach (var refinement in refinementGroup.Refinements)
+                {
+                    <li>
+                        <a class="available-item" id="refgroup-@(refinementGroup.GroupId.ToString() + "-" + refinement.Id.ToString())"
+                               href="javascript:refineSearch(@refinementGroup.GroupId,@refinement.Id)">
+                            @Html.Encode(refinement.Name)
+                        </a>                        
+                    </li>
+                }
+            </ul>
+
+        </div>
+    }
+</div>
+<div id="product-results" class="main-view">
+    <h5>@Html.ActionLink("Home", "Index", "Home") > @Html.Encode(Model.SelectedCategoryName)</h5>
+
+    <div class="list-group">
+        <span>Sort by</span>
+        <select id="ddlSortBy" class="dropdown ">
+            @foreach (var item in Enum.GetValues(typeof(ProductsSortBy)).Cast<ProductsSortBy>())
+            {
+                <option value="@((int)item)">@item.GetEnumDescription()</option>
+            }
+        </select>
+        <span id="products-found"><span id="numberOfProductsFound">@Html.Encode(Model.NumberOfTitlesFound)</span> products found</span>
+    </div>
+
+    <span id="page-links-top">
+        @Html.BuildPageLinksFrom(Model.CurrentPage, Model.TotalNumberOfPages, x => $"javascript:displayPage({x})")
+    </span>
+
+    <div id="items">
+        <ul class="items-list">
+            @foreach (var item in Model.Products)
+            {
+                <li class="item-detail">
+                    @Html.ActionLink(item.BrandName + " " + item.Name, "Detail", "Product", new { id = item.Id }, null)
+                    @item.Price
+                    <a href="@Url.Action("Detail","Product", new { id = item.Id})">
+                        <img src="~/Content/Images/Products/Product_Icon.png"
+                             class="product-img-list" />
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <span id="page-links-bottom">
+        @Html.BuildPageLinksFrom(Model.CurrentPage, Model.TotalNumberOfPages, x => $"javascript:displayPage({x})")
+    </span>
+
+    <script type="text/html" id="product-item-template">
+        <ul class="items-list" id="product-item-template">
+            {#foreach $T.items as record}
+            <li class="item-detail">
+                <a href="@Url.Action("Detail", "Product") + {$T.record.Id}">
+                    {$T.record.BrandName} {$T.record.Name}
+                </a>
+                {$T.record.Price}
+                <a href="@Url.Action("Detail", "Product") + {$T.record.Id}">
+                    <img src="~/Content/Images/Products/Product_Icon.png" class="product-img-list" />
+                </a>
+            </li>
+            {#/for}
+        </ul>
+    </script>
+    @Html.Hidden("categoryId", Model.SelectedCategory)
+
+    <div id="dialog-noproducts" title="No products found matching your refinement">
+        <p>Your selection had no results - please try another criteria.</p>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/Product/ProductSearchResult.js")

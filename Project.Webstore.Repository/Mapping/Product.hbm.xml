@@ -4,7 +4,7 @@
   namespace="Project.Webstore.Model.Product" 
   assembly="Project.Webstore.Model">
 
-  <class name="Product" table="Products" lazy="false">
+  <class name="Product" table="Product" lazy="false">
     <id name="Id" column="Id" type="int" unsaved-value="0">
       <generator class="native"/>
     </id>

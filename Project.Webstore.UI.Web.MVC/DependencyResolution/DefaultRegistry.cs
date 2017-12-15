@@ -16,6 +16,12 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace Project.Webstore.UI.Web.MVC.DependencyResolution {
+    using Project.Webstore.Infrastructure.Configuration.Classes;
+    using Project.Webstore.Infrastructure.Configuration.Interfaces;
+    using Project.Webstore.Infrastructure.Email.Classes;
+    using Project.Webstore.Infrastructure.Email.Interfaces;
+    using Project.Webstore.Infrastructure.Logging.Classes;
+    using Project.Webstore.Infrastructure.Logging.Interfaces;
     using StructureMap;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
@@ -30,12 +36,15 @@ namespace Project.Webstore.UI.Web.MVC.DependencyResolution {
                     scan.Assembly("Project.Webstore.Infrastructure");
                     scan.Assembly("Project.Webstore.Repository");
                     scan.Assembly("Project.Webstore.Model");
-                    scan.Assembly("Project.Webstore.Service");
+                    scan.Assembly("Project.Webstore.Services");
                     //scan.Assembly("Project.Webstore.ServiceCache");
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
             //For<IExample>().Use<Example>();
+            For<IApplicationSettings>().Use<WebConfigApplicationSettings>();
+            For<ILogger>().Use<Log4NetAdapter>();
+            For<IEmailService>().Use<SMTPService>();
         }
 
         #endregion

@@ -27,6 +27,8 @@ namespace Project.Webstore.Services.Mapping
 
             result.Products = CropProductListToSatisfyGivenIndex(request.PageIndex, request.NumberOfResultsPerPage, titlesFound);
 
+            result.CurrentPage = request.PageIndex;
+
             return result;
         }
 

@@ -16,7 +16,7 @@
     </property>
     <many-to-one name="Color" class="Project.Webstore.Model.ProductAttributes.ProductColor" column="ColorId" not-null="true" />
     <many-to-one name="Brand" class="Project.Webstore.Model.ProductAttributes.Brand" column="BrandId" not-null="true" />
-    <many-to-one name="Category" class="Project.Webstore.Model.ProductAttributes.Category" column="CategoryId" not-null="true" lazy="false" />
+    <many-to-one name="Category" class="Project.Webstore.Model.Category.Category" column="CategoryId" not-null="true" lazy="false" />
     <bag name="Products" inverse="true" cascade="all" lazy="false" fetch="join">
       <key column="ProductTitleId" />
       <one-to-many class="Product"></one-to-many>

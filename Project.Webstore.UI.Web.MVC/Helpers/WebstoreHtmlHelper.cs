@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Project.Webstore.Services.Messaging.ProductCatalogService.Request;
+using System;
+using System.ComponentModel;
+using System.Reflection;
 using System.Text;
 using System.Web.Mvc;
 
@@ -6,7 +9,7 @@ namespace Project.Webstore.UI.Web.MVC.Helpers
 {
     public static class WebstoreHtmlHelper
     {
-        public static string BuildPageLinksFrom(this HtmlHelper html, int currentPage, int totalPages, Func<int, string> pageUrl)
+        public static MvcHtmlString BuildPageLinksFrom(this HtmlHelper html, int currentPage, int totalPages, Func<int, string> pageUrl)
         {
             var result = new StringBuilder();
             for (int i = 1; i <= totalPages; i++)
@@ -19,7 +22,20 @@ namespace Project.Webstore.UI.Web.MVC.Helpers
 
                 result.AppendLine(tag.ToString());
             }
-            return result.ToString();
-        }        
+            return new MvcHtmlString(result.ToString());
+        }
+
+        public static string GetEnumDescription(this Enum value)
+        {
+            FieldInfo fi = value.GetType().GetField(value.ToString());
+
+            DescriptionAttribute[] attributes =
+                (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+            if (attributes != null && attributes.Length > 0)
+                return attributes[0].Description;
+            else
+                return value.ToString();
+        }
     }
 }

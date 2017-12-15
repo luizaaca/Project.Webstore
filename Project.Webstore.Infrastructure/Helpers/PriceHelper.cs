@@ -4,7 +4,7 @@
     {
         public static string FormatMoney(this decimal price)
         {
-            return $"R${price}";
+            return $"R$ {price}";
         }
     }
 }

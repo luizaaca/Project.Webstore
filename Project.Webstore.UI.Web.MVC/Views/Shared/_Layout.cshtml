@@ -7,41 +7,74 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-</head>
-<body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                    </ul>
-                </div>
-            </div>
-        </div>*@
-
-    <header>
-        <span>
-            <a href="@Url.Content("~/")">
-                <img src="~/Content/Images/shopping_cart.jpg" alt="Webstore" border="0" />
-            </a>
-        </span>
-    </header>
-    
-    @RenderBody()
-    <hr />
-
-    <footer>
-        @Html.Partial("_Footer")
-    </footer>
-
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/webstore-common.js"></script>
+</head>
+<body>
+    @Html.Hidden("base-url", Url.Action("","",null,"http"))
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar-left">
+                <a href="@Url.Action("Index","Home")" class="navbar-brand">
+                    <img src="~/Content/Images/shopping_cart.jpg" class="logo" alt="Webstore" />
+                    Webstore
+                </a>
+            </div>
+            <div class="navbar-header navbar-right navbar-text">
+                <span>Cart (0)</span> | 
+                <span>Login</span>
+            </div>
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+    </div>
+
+    <footer class="">
+        <hr />
+        <div style="float:left;margin-left:20px;">
+            <table>
+                <tr>
+                    <td>
+                        <ul>
+                            <li class="footer-list-header">
+                                Help:
+                            </li>
+                            <li><a href="#">Neque porro quisquam est</a></li>
+                            <li><a href="#">ipsum quia dolor sit amet</a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li class="footer-list-header">
+                                About:
+                            </li>
+                            <li><a href="#">Neque porro quisquam est</a></li>
+                            <li><a href="#">ipsum quia dolor sit amet</a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li class="footer-list-header">
+                                Social:
+                            </li>
+                            <li><a href="#">Neque porro quisquam est</a></li>
+                            <li><a href="#">ipsum quia dolor sit amet</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="float:right;margin-top: 10px">
+            <a href="@Url.Action("Index","Home")" class="navbar-brand">
+                <img src="~/Content/Images/shopping_cart.jpg" class="logo" alt="Webstore" />
+                Webstore
+            </a>
+        </div>
+    </footer>
+
+
 </body>
 </html>
