@@ -34,7 +34,7 @@
                 <option value="@((int)item)">@item.GetEnumDescription()</option>
             }
         </select>
-        <span id="products-found"><span id="numberOfProductsFound">@Html.Encode(Model.NumberOfTitlesFound)</span> products found</span>
+        <span id="products-found"><span id="number-products-found">@Html.Encode(Model.NumberOfTitlesFound)</span> products found</span>
     </div>
 
     <span id="page-links-top">
@@ -62,15 +62,15 @@
     </span>
 
     <script type="text/html" id="product-item-template">
-        <ul class="items-list" id="product-item-template">
+        <ul class="items-list" >
             {#foreach $T.items as record}
             <li class="item-detail">
-                <a href="@Url.Action("Detail", "Product") + {$T.record.Id}">
+                <a href="@Url.Action("Detail", "Product")/{$T.record.Id}">
                     {$T.record.BrandName} {$T.record.Name}
                 </a>
                 {$T.record.Price}
-                <a href="@Url.Action("Detail", "Product") + {$T.record.Id}">
-                    <img src="~/Content/Images/Products/Product_Icon.png" class="product-img-list" />
+                <a href="@Url.Action("Detail", "Product")/{$T.record.Id}">
+                    <img src="@Url.Content("~/Content/Images/Products/Product_Icon.png")" class="product-img-list" />
                 </a>
             </li>
             {#/for}

@@ -44,7 +44,7 @@ namespace Project.Webstore.UI.Web.MVC.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetProducts(JsonProductSearchRequest jsonRequest)
+        public ActionResult GetProducts(JsonProductSearchRequest jsonRequest)
         {
             var request = GenerateProductSearchRequestFrom(jsonRequest);
 
@@ -52,7 +52,7 @@ namespace Project.Webstore.UI.Web.MVC.Controllers
 
             var result = GetProductResultViewFrom(response);
 
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(result);
         }
 
         private static GetProductsByCategoryRequest GenerateProductSearchRequestFrom(JsonProductSearchRequest jsonRequest)
@@ -69,13 +69,13 @@ namespace Project.Webstore.UI.Web.MVC.Controllers
                 switch ((RefinementGroupings)item.GroupId)
                 {
                     case RefinementGroupings.brand:
-                        request.BrandIds = item.SelectedRefinements;
+                        request.BrandIds = item.SelectedRefinements ?? new int[0];
                         break;
                     case RefinementGroupings.color:
-                        request.ColorIds = item.SelectedRefinements;
+                        request.ColorIds = item.SelectedRefinements ?? new int[0];
                         break;
                     case RefinementGroupings.size:
-                        request.SizeIds = item.SelectedRefinements;
+                        request.SizeIds = item.SelectedRefinements ?? new int[0];
                         break;
                     default:
                         break;

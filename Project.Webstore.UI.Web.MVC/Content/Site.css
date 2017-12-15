@@ -51,7 +51,7 @@ ul {
     }
 
         .left-menu a:hover {
-            color: darkslategrey;
+            color: #333;
             text-decoration: none;
         }
 
@@ -95,7 +95,27 @@ ul {
 .refine-attributes {
     padding: 0;
     text-transform: capitalize;
+    text-decoration: none;
 }
+
+    .refine-attributes a {
+        text-decoration: none !important;
+    }
+
+    .refine-attributes > li > .available-item {
+        color: #333;
+        font-weight: 600;
+    }
+
+    .refine-attributes > li > .selected-item {
+        color: #333;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .refine-attributes > li > .disabled-item {
+        color: #808080;
+    }
 
 .small-caps {
     font-variant: small-caps;

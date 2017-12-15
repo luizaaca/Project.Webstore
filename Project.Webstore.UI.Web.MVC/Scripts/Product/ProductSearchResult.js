@@ -5,7 +5,6 @@ var lastSelectedRefinementGroupId;
 var lastActionWasToNarrowProductRefinement = false;
 
 $().ready(function () {
-
     $('#ddlSortBy').change(function () {
         if (!disallowUpdates)
             displayPage(1);
@@ -14,12 +13,10 @@ $().ready(function () {
     $("#dialog-noproducts").dialog({
         bgiframe: true, autoOpen: false, height: 100, modal: true
     });
-
 });
 
 
 function displayPage(index) {
-
     if (!disallowUpdates) {
 
         var categoryId = $('#categoryId').val();
@@ -30,7 +27,6 @@ function displayPage(index) {
 }
 
 function refineSearch(refinementGroupId, refinementItemId) {
-
     if (!disallowUpdates) {
 
         var itemRefinementElementId =
@@ -61,7 +57,6 @@ function refineSearch(refinementGroupId, refinementItemId) {
 }
 
 function getProducts(index, categoryId, sortBy) {
-
     if (!disallowUpdates) {
         disallowUpdates = true;
 
@@ -80,15 +75,14 @@ function getProducts(index, categoryId, sortBy) {
             dataType: "json",
             data: jsonData,
             contentType: "application/json; charset=utf-8",
-            sucess: function (data) {
-                console.log(data);
+            success: function (data) {
                 var mydata = { items: data.Products };
                 if (data.Products.length == 0) {
                     showNoProductsFoundDialogBoxAndRevertSelection();
                 } else {
-                    $("#items").setTemplate($("#productItemTemplate").html());
+                    $("#items").setTemplate($("#product-item-template").html());
                     $("#items").processTemplate(mydata);
-                    $("#numberOfProductsFound").text(data.NumberOfTitlesFound);
+                    $("#number-products-found").text(data.NumberOfTitlesFound);
                     buildPageLinksFor("#page-links-top", data.CurrentPage, data.TotalNumberOfPages);
                     buildPageLinksFor("#page-links-bottom", data.CurrentPage, data.TotalNumberOfPages);
 
@@ -102,7 +96,9 @@ function getProducts(index, categoryId, sortBy) {
 
                 disallowUpdates = false;
             },
-            error: console.log
+            error: function (error) {
+                console.log(error);
+            }
         });
     }
 }
@@ -117,7 +113,8 @@ function filterOutRefinements(refinementGroupId, availableProductRefinements) {
             var refinementItemId = findRefinementItemIdFrom(itemRefinementElementId);
 
             var refinementItemIdMatched =
-                refItemIdIsInAvailableProdRefs(availableProductRefinements, refinementItemId);
+                refinementItemIdIsInProductAvailableRefinements
+                    (availableProductRefinements, refinementItemId);
 
             if (!lastSelectionWasMadeIn(refinementGroupId)) {
                 if (lastActionWasToNarrowProductRefinement) {
@@ -181,7 +178,7 @@ function findRefinementItemIdFrom(itemRefinementElementId) {
     refinementItemId = 0;
 
     refinementItemId = itemRefinementElementId
-        .substring(temRefinementElementId.lastIndexIf("-") + 1, itemRefinementElementId.length);
+        .substring(itemRefinementElementId.lastIndexOf("-") + 1, itemRefinementElementId.length);
 
     return refinementItemId
 }
