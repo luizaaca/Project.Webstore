@@ -1,5 +1,4 @@
-﻿using Project.Webstore.Infrastructure.UnitOfWork.Validation;
-using System;
+﻿using Project.Webstore.Infrastructure.Domain.Validation;
 using System.Collections.Generic;
 
 namespace Project.Webstore.Infrastructure.Domain.BaseClasses

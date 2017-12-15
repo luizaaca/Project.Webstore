@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping
+  xmlns="urn:nhibernate-mapping-2.2"
+  namespace="Project.Webstore.Model.Basket"
+  assembly="Project.Webstore.Model">
+
+  <class name="BasketItem" table="BasketItems" lazy="false">
+
+    <id name="Id" column="Id" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+
+    <property name="Quantity" access="field.camelcase-underscore">
+      <column name="Quantity" sql-type="int" not-null="true" />
+    </property>
+    
+    <many-to-one name="Basket"
+                 class="Basket"
+                 access="field.camelcase-underscore"
+                 column="basketId"
+                 not-null="true"/>
+    
+    <many-to-one name="Product"
+                 class="Project.Webstore.Model.Product.Product"
+                 access="field.camelcase-underscore"
+                 column="ProductId"
+                 not-null="true"/>
+  </class>
+</hibernate-mapping>

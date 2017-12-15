@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping
+  xmlns="urn:nhibernate-mapping-2.2"
+  namespace="Project.Webstore.Model.Shipping"
+  assembly="Project.Webstore.Model">
+
+  <class name="DeliveryOption" table="DeliveryOptions" lazy="false">
+
+    <id name="Id" column="Id" type="int" unsaved-value="0">
+      <generator class="native" />
+    </id>
+
+    <property name="FreeDeliveryThreshold" access="field.camelcase-underscore">
+      <column name="FreeDeliveryThreshold" sql-type="decimal(18, 2)" not-null="true" />
+    </property>
+
+    <property name="Cost" access="field.camelcase-underscore">
+      <column name="Cost" sql-type="decimal(18, 2)" not-null="true" />
+    </property>
+
+    <many-to-one name="ShippingService"
+                 class="ShippingService"
+                 access="field.camelcase-underscore"
+                 column="ServiceId"
+                 not-null="true"
+                 lazy="false"/>
+  </class>
+</hibernate-mapping>

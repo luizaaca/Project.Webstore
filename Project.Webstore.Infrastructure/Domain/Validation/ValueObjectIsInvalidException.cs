@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Project.Webstore.Infrastructure.UnitOfWork.Validation
+namespace Project.Webstore.Infrastructure.Domain.Validation
 {
     public class ValueObjectIsInvalidException : Exception
     {
