@@ -1,9 +1,9 @@
-﻿using Project.Webstore.Infrastructure.UnitOfWork.Validation;
+﻿using Project.Webstore.Infrastructure.Domain.Validation;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project.Webstore.Infrastructure.UnitOfWork.BaseClasses
+namespace Project.Webstore.Infrastructure.Domain.BaseClasses
 {
     public abstract class ValueObjectBase
     {

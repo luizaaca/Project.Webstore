@@ -4,6 +4,8 @@ using Project.Webstore.Model.ProductAttributes.Interfaces;
 using Project.Webstore.Services.ViewModels;
 using Project.Webstore.Infrastructure.Helpers;
 using Project.Webstore.Model.Category;
+using Project.Webstore.Model.Shipping;
+using Project.Webstore.Model.Basket;
 
 namespace Project.Webstore.Services
 {
@@ -30,6 +32,12 @@ namespace Project.Webstore.Services
                 cfg.CreateMap<Category, CategoryView>();
 
                 cfg.CreateMap<IProductAttribute, Refinement>();
+
+                cfg.CreateMap<DeliveryOption, DeliveryOptionView>();
+
+                cfg.CreateMap<BasketItem, BasketItemView>();
+
+                cfg.CreateMap<Basket, BasketView>();
             });
         }
     }

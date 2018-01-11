@@ -9,6 +9,7 @@ using Project.Webstore.Services.Messaging.ProductCatalogService.Response;
 using Project.Webstore.Model.Repositories;
 using Project.Webstore.Model.Product;
 using Project.Webstore.Infrastructure.Querying;
+using Project.Webstore.Services.Implementations.Utils;
 
 namespace Project.Webstore.Services.Implementations
 {

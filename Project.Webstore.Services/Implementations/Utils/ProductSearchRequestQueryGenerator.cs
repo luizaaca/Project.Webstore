@@ -4,7 +4,7 @@ using Project.Webstore.Services.Messaging.ProductCatalogService.Request;
 using System;
 using System.Linq;
 
-namespace Project.Webstore.Services.Implementations
+namespace Project.Webstore.Services.Implementations.Utils
 {
     public class ProductSearchRequestQueryGenerator
     {
